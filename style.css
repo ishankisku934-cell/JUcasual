@@ -217,6 +217,7 @@ input:focus, select:focus {
     color: #000;
     font-size: 1.6rem;
     margin-bottom: 5px;
+    border-bottom: none; /* Override card style */
 }
 
 .address-block {
@@ -369,4 +370,93 @@ input:focus, select:focus {
 
 .btn-cancel:hover {
     background-color: #e0e0e0;
+}
+
+/* ==========================================================================
+   PRINT STYLES - This section handles the printing layout
+   ========================================================================== 
+*/
+@media print {
+    /* Hide all non-printable elements */
+    header, 
+    .no-print, 
+    .actions, 
+    .print-dialog, 
+    .form-group, 
+    .letter-choice, 
+    .card h2,
+    .important-note,
+    .btn {
+        display: none !important;
+    }
+    
+    body {
+        background-color: white;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .container {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        grid-template-columns: 1fr;
+    }
+    
+    .card {
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+        border: none;
+        transform: none !important; /* Disable hover effects */
+    }
+
+    .preview-container {
+        min-height: auto;
+        border: none;
+    }
+    
+    .letter-preview {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        overflow: visible;
+        height: auto;
+        font-size: 12pt;
+        line-height: 1.5;
+        color: black;
+    }
+
+    /* Ensure specific elements look like a document */
+    .letter-header h2 {
+        font-size: 18pt;
+        margin-bottom: 10px;
+        color: black;
+    }
+    
+    .letter-header p {
+        font-size: 12pt;
+    }
+    
+    .address-block p, 
+    .subject-line, 
+    .signature-block p {
+        color: black;
+    }
+    
+    /* Ensure footer fits */
+    .footer-info {
+        border-top: 1px solid #000;
+        color: #000;
+    }
+    
+    /* Set page margins */
+    @page {
+        margin: 2cm;
+        size: A4;
+    }
+}
+0;
 }
