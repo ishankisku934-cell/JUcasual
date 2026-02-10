@@ -73,7 +73,7 @@ function generatePreview() {
             letterBody = `
                 <p style="font-weight:bold; text-decoration:underline; margin: 20px 0;">Subject: Application for Grant of Casual Admission for the Academic Sessions 2025 and 2026</p>
                 <p>Respected Sir,</p>
-                <p style="text-align:justify;">I respectfully state that I was first admitted to Jadavpur University in the academic session 2020–2021. I now seek permission to apply for casual admission for the academic sessions 2025 and 2026, in accordance with the University norms.</p>
+                <p style="text-align:justify;">I respectfully state that I was first admitted to Jadavpur University in the academic session 2020–2021. I now seek permission to apply for casual admission for the academic sessions 2025 and 2026, in accordance with the University norms. Owing to a period of significant personal stress combined with unavoidable work-related engagements during the academic session 2025, I was unable to take casual admission for that session.</p>
                 <p style="text-align:justify;">I therefore request you kindly to allow me to take casual admission for the above-mentioned academic sessions and to complete all required academic formalities as prescribed.</p>
             `;
         }
