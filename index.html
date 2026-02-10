@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container">
-        <header>
+        <header class="no-print">
             <h1><i class="fas fa-university"></i> Jadavpur University</h1>
             <p>Casual Admission Letter Generator for 2025 & 2026 Sessions</p>
         </header>
@@ -32,24 +32,21 @@
                 <div class="form-group">
                     <label for="fullName">Your Full Name <span class="required">*</span></label>
                     <input type="text" id="fullName" placeholder="As per University records (certificate)" required>
-                    <small style="color: #666;">Exactly as in your university certificate</small>
                 </div>
                 
                 <div class="form-group">
                     <label for="regNumber">Registration Number (2020–21) <span class="required">*</span></label>
-                    <input type="text" id="regNumber" placeholder="e.g. 20EE1234" required pattern="[0-9]{2}[A-Z]{2}[0-9]{4}" title="Format: 20EE1234">
+                    <input type="text" id="regNumber" placeholder="e.g. 148383 (2020–21)" required>
                 </div>
                 
                 <div class="form-group">
                     <label for="rollNumber">Roll Number <span class="required">*</span></label>
-                    <input type="text" id="rollNumber" placeholder="Current/Final Roll Number" required>
-                    <small style="color: #666;">Incorrect roll number may cause rejection</small>
+                    <input type="text" id="rollNumber" placeholder="Class Roll Number" required>
                 </div>
                 
                 <div class="form-group">
                     <label for="department">Department Name <span class="required">*</span></label>
-                    <input type="text" id="department" placeholder="Full department name (e.g. Department of Electrical Engineering)" required>
-                    <small style="color: #666;">Write full name, not abbreviation</small>
+                    <input type="text" id="department" placeholder="e.g. Electrical Engineering" required>
                 </div>
                 
                 <div class="form-group">
@@ -58,17 +55,13 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="appDate">Date of Application (Optional)</label>
+                    <label for="appDate">Date of Application</label>
                     <input type="date" id="appDate">
                 </div>
                 
                 <div class="important-note">
-                    <h4><i class="fas fa-exclamation-circle"></i> Important Notes</h4>
-                    <ul>
-                        <li>Your signature must be handwritten on the printed/hard copy</li>
-                        <li>Use the exact registration number provided by JU</li>
-                        <li>Letter will be printed in proper official format</li>
-                    </ul>
+                    <h4><i class="fas fa-exclamation-circle"></i> Note</h4>
+                    <p>Fill all details correctly. This tool generates a letter layout for you to print and sign.</p>
                 </div>
                 
                 <div class="actions">
@@ -79,17 +72,17 @@
             </form>
         </div>
         
-        <div class="card">
-            <h2><i class="fas fa-file-alt"></i> Letter Preview</h2>
+        <div class="card preview-card">
+            <h2 class="no-print"><i class="fas fa-file-alt"></i> Letter Preview</h2>
             
             <div class="preview-container">
                 <div class="loading" id="loadingIndicator">
                     <i class="fas fa-spinner fa-spin"></i>
-                    <p>Generating preview...</p>
+                    <p>Generating...</p>
                 </div>
                 
                 <div id="previewContent">
-                    <div class="no-preview">
+                    <div class="no-preview no-print">
                         <i class="far fa-file-alt"></i>
                         <h3>No Preview Available</h3>
                         <p>Fill in your details and click "Generate Preview" to see your letter here.</p>
@@ -97,32 +90,10 @@
                 </div>
             </div>
             
-            <div class="actions no-print">
-                <button class="btn btn-print" onclick="showPrintDialog()">
-                    <i class="fas fa-print"></i> Print Letter
+            <div class="actions no-print" id="printActions" style="display:none;">
+                <button class="btn btn-print" onclick="window.print()">
+                    <i class="fas fa-print"></i> Print / Save PDF
                 </button>
-            </div>
-        </div>
-    </div>
-    
-    <div class="print-dialog" id="printDialog">
-        <div class="print-dialog-content">
-            <h3><i class="fas fa-print"></i> Print Preview</h3>
-            <p>Your letter will open in a new window formatted for A4 paper.</p>
-            
-            <div class="print-options">
-                <div class="print-option active">
-                    <i class="fas fa-file-pdf"></i>
-                    <div class="print-option-text">
-                        <h4>Print / Save as PDF</h4>
-                        <p>A new window will open. Use the browser's print option (Ctrl+P) to save as PDF or print.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="print-dialog-actions">
-                <button class="btn btn-cancel" onclick="closePrintDialog()">Cancel</button>
-                <button class="btn" onclick="openPrintPreview()">Continue</button>
             </div>
         </div>
     </div>
@@ -130,4 +101,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
